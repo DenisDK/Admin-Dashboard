@@ -41,7 +41,7 @@
  }
  
  .logout{
-   padding: 20px;
+   padding: 15px; /*20px*/
    margin: 5px 0px;
    display: flex;
    align-items: center;
@@ -52,6 +52,7 @@
    border: none;
    color: white;
    width: 100%;
+   font-weight: bold;
  }
  
  .logout:hover{

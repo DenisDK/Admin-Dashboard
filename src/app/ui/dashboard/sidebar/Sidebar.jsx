@@ -96,6 +96,10 @@ export const Sidebar = () => {
             {cat.list.map((item) => (<MenuLink key={item.title} item={item}/>))}
          </li>))}
       </ul>
+      <button className={style.logout}>
+         <MdLogout/>
+         Logout
+      </button>
    </div>
   )
 }
