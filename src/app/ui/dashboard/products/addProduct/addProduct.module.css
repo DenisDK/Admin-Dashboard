@@ -33,12 +33,18 @@
  
  .form button{
    width: 100%;
-   padding: 30px;
+   padding: 20px; /*30 px*/
    background-color: teal;
    color: var(--text);
    border: none;
    border-radius: 5px;
    cursor: pointer;
+   font-size: 18px;
+   transition: .3s;
+ }
+
+ .form button:hover {
+   background-color: rgb(9, 153, 153);
  }
 
 

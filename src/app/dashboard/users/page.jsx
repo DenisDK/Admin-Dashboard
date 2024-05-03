@@ -39,7 +39,7 @@ export default function UsersPage() {
                <td>Active</td>
                <td>
                   <div className={style.buttons}>
-                     <Link href='/'>
+                     <Link href='/dashboard/users/test'>
                         <button className={`${style.button} ${style.view}`}>View</button>
                      </Link>
                         <button className={`${style.button} ${style.delete}`}>Delete</button>
