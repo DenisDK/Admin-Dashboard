@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Pagination } from '@/app/ui/dashboard/pogination/Pagination'
 
-export default function UsersPage({}) {
+export default function UsersPage() {
   return (
     <div className={style.container}>
       <div className={style.top}>
