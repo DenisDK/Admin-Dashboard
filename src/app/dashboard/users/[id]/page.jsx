@@ -3,7 +3,11 @@ import style from '@/app/ui/dashboard/users/singleUser/singleUser.module.css'
 import Image from 'next/image'
 
 
-export default function SingleUserPage() {
+export default function SingleUserPage({ params }) {
+
+   // const { id } = params;
+   // const user = await fetchUser(id);
+
   return (
    <div className={style.container}>
    <div className={style.infoContainer}>
