@@ -13,7 +13,7 @@ import { MdPeople } from "react-icons/md";
 import { MdOutlineSettings } from "react-icons/md";
 import { MdHelpCenter } from "react-icons/md";
 import { MdLogout } from "react-icons/md";
-import { MenuLink } from './menuLink/menuLink';
+import { MenuLink } from './menuLink/MenuLink';
 import Image from 'next/image';
 
 const menuItems = [
