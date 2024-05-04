@@ -1,10 +1,11 @@
 import React from "react";
 import style from "@/app/ui/dashboard/users/singleUser/singleUser.module.css";
 import Image from "next/image";
+import { fetchUsers } from "@/app/lib/data";
 
-export default function SingleUserPage({ params }) {
-  // const { id } = params;
-  // const user = await fetchUser(id);
+export default async function SingleUserPage({ params }) {
+  const { id } = params;
+  const user = await fetchUsers(id);
 
   return (
     <div className={style.container}>
@@ -15,7 +16,8 @@ export default function SingleUserPage({ params }) {
         {user.username}
       </div>
       <div className={style.formContainer}>
-        <form action={updateUser} className={style.form}>
+        <form className={style.form}>
+          {/* action={updateUser} */}
           <input type="hidden" name="id" value={user.id} />
           <label>Username</label>
           <input type="text" name="username" placeholder={user.username} />
