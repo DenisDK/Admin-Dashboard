@@ -4,14 +4,20 @@ import { Search } from "@/app/ui/dashboard/search/Search";
 import Link from "next/link";
 import Image from "next/image";
 import { Pagination } from "@/app/ui/dashboard/pogination/Pagination";
+import { searchParams } from "next/navigation";
+import { fetchProducts } from "@/app/lib/data";
 
-export default function ProductsPage() {
+export default async function ProductsPage({ searchParams }) {
+  const q = searchParams?.q || "";
+  const page = searchParams?.page || 1;
+  const { count, products } = await fetchProducts(q, page);
+
   return (
     <div className={style.container}>
       <div className={style.top}>
         <Search placeholder="Search for a product..." />
         <Link href="/dashboard/products/add">
-          <button className={style.addButton}>Add new</button>
+          <button className={style.addButton}>Add New</button>
         </Link>
       </div>
       <table className={style.table}>
@@ -19,46 +25,51 @@ export default function ProductsPage() {
           <tr>
             <td>Title</td>
             <td>Description</td>
-            <td>Prise</td>
+            <td>Price</td>
             <td>Created At</td>
             <td>Stock</td>
             <td>Action</td>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <div className={style.product}>
-                <Image
-                  src="/noproduct.jpg"
-                  alt="User logo"
-                  width={40}
-                  height={40}
-                  className={style.productImage}
-                />
-                IPhone
-              </div>
-            </td>
-            <td>Desc</td>
-            <td>$999</td>
-            <td>03.05.2024</td>
-            <td>77</td>
-            <td>
-              <div className={style.buttons}>
-                <Link href="/dashboard/products/test">
-                  <button className={`${style.button} ${style.view}`}>
-                    View
+          {products.map((product) => (
+            <tr key={product.id}>
+              <td>
+                <div className={style.product}>
+                  <Image
+                    src={product.img || "/noproduct.jpg"}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className={style.productImage}
+                  />
+                  {product.title}
+                </div>
+              </td>
+              <td>{product.desc}</td>
+              <td>${product.price}</td>
+              <td>{product.createdAt?.toString().slice(4, 16)}</td>
+              <td>{product.stock}</td>
+              <td>
+                <div className={style.buttons}>
+                  <Link href={`/dashboard/products/${product.id}`}>
+                    <button className={`${style.button} ${style.view}`}>
+                      View
+                    </button>
+                  </Link>
+                  {/* <form action={deleteProduct}> */}
+                  <input type="hidden" name="id" value={product.id} />
+                  <button className={`${style.button} ${style.delete}`}>
+                    Delete
                   </button>
-                </Link>
-                <button className={`${style.button} ${style.delete}`}>
-                  Delete
-                </button>
-              </div>
-            </td>
-          </tr>
+                  {/* </form> */}
+                </div>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
-      <Pagination />
+      <Pagination count={count} />
     </div>
   );
 }

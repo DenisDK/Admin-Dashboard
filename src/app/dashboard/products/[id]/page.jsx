@@ -1,10 +1,11 @@
 import React from "react";
 import style from "@/app/ui/dashboard/products/singleProduct/singleProduct.module.css";
 import Image from "next/image";
+import { fetchProducts } from "@/app/lib/data";
 
-export default function SingleProductPage({ params }) {
-  // const { id } = params;
-  // const product = await fetchProduct(id);
+export default async function SingleProductPage({ params }) {
+  const { id } = params;
+  const product = await fetchProducts(id);
 
   return (
     <div className={style.container}>
@@ -15,7 +16,8 @@ export default function SingleProductPage({ params }) {
         {product.title}
       </div>
       <div className={style.formContainer}>
-        <form action={updateProduct} className={style.form}>
+        <form className={style.form}>
+          {/* action={updateProduct} */}
           <input type="hidden" name="id" value={product.id} />
           <label>Title</label>
           <input type="text" name="title" placeholder={product.title} />
@@ -44,7 +46,7 @@ export default function SingleProductPage({ params }) {
           <textarea
             name="desc"
             id="desc"
-            rows="10"
+            rows="3" // 10
             placeholder={product.desc}
           ></textarea>
           <button>Update</button>
