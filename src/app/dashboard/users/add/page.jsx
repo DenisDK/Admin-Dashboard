@@ -1,9 +1,9 @@
-import React from 'react'
-import style from '@/app/ui/dashboard/users/addUser/addUser.module.css'
+import React from "react";
+import style from "@/app/ui/dashboard/users/addUser/addUser.module.css";
 
-export default function AddUserPage({addUser}) {
+export default function AddUserPage({ addUser }) {
   return (
-   <div className={style.container}>
+    <div className={style.container}>
       <form action={addUser} className={style.form}>
         <input type="text" placeholder="username" name="username" required />
         <input type="email" placeholder="email" name="email" required />
@@ -15,16 +15,12 @@ export default function AddUserPage({addUser}) {
         />
         <input type="phone" placeholder="phone" name="phone" />
         <select name="isAdmin" id="isAdmin">
-          <option value={false}>
-            Is Admin?
-          </option>
+          <option value={false}>Is Admin?</option>
           <option value={true}>Yes</option>
           <option value={false}>No</option>
         </select>
         <select name="isActive" id="isActive">
-          <option value={true}>
-            Is Active?
-          </option>
+          <option value={true}>Is Active?</option>
           <option value={true}>Yes</option>
           <option value={false}>No</option>
         </select>
@@ -37,6 +33,5 @@ export default function AddUserPage({addUser}) {
         <button type="submit">Submit</button>
       </form>
     </div>
-  )
+  );
 }
-

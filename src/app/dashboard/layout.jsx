@@ -1,20 +1,20 @@
-import React from 'react'
-import { Sidebar } from '../ui/dashboard/sidebar/Sidebar'
-import { Navbar } from '../ui/dashboard/navbar/Navbar'
-import style from '../ui/dashboard/dashboard.module.css'
-import { Footer } from '../ui/dashboard/footer/Footer'
+import React from "react";
+import { Sidebar } from "../ui/dashboard/sidebar/Sidebar";
+import { Navbar } from "../ui/dashboard/navbar/Navbar";
+import style from "../ui/dashboard/dashboard.module.css";
+import { Footer } from "../ui/dashboard/footer/Footer";
 
-export default function layout({children}) {
+export default function layout({ children }) {
   return (
     <div className={style.container}>
       <div className={style.menu}>
-         <Sidebar/>
+        <Sidebar />
       </div>
       <div className={style.content}>
-         <Navbar/>
-         {children}
-         <Footer/>
+        <Navbar />
+        {children}
+        <Footer />
       </div>
     </div>
-  )
+  );
 }

@@ -1,15 +1,13 @@
-import React from 'react'
-import style from '@/app/ui/dashboard/products/singleProduct/singleProduct.module.css'
-import Image from 'next/image'
-
+import React from "react";
+import style from "@/app/ui/dashboard/products/singleProduct/singleProduct.module.css";
+import Image from "next/image";
 
 export default function SingleProductPage({ params }) {
-
-   // const { id } = params;
-   // const product = await fetchProduct(id);
+  // const { id } = params;
+  // const product = await fetchProduct(id);
 
   return (
-   <div className={style.container}>
+    <div className={style.container}>
       <div className={style.infoContainer}>
         <div className={style.imgContainer}>
           <Image src="/noavatar.png" alt="" fill />
@@ -53,5 +51,5 @@ export default function SingleProductPage({ params }) {
         </form>
       </div>
     </div>
-  )
+  );
 }

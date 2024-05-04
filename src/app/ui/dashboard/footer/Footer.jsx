@@ -1,5 +1,5 @@
-import React from 'react'
-import style from "./footer.module.css"
+import React from "react";
+import style from "./footer.module.css";
 
 export const Footer = () => {
   return (
@@ -7,5 +7,5 @@ export const Footer = () => {
       <div className={style.logo}>DenisDK Dev</div>
       <div className={style.text}>© All rights reserved.</div>
     </div>
-  )
-}
+  );
+};
