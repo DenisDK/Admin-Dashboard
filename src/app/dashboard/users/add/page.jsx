@@ -1,7 +1,8 @@
 import React from "react";
 import style from "@/app/ui/dashboard/users/addUser/addUser.module.css";
+import { addUser } from "@/app/lib/actions";
 
-export default function AddUserPage({ addUser }) {
+export default function AddUserPage() {
   return (
     <div className={style.container}>
       <form action={addUser} className={style.form}>
