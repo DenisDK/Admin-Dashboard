@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Pagination } from "@/app/ui/dashboard/pogination/Pagination";
 import { fetchUsers } from "@/app/lib/data";
+import { deleteUser } from "@/app/lib/actions";
 
 export default async function UsersPage({ searchParams }) {
   const q = searchParams?.q || "";
@@ -56,12 +57,12 @@ export default async function UsersPage({ searchParams }) {
                       View
                     </button>
                   </Link>
-                  {/* <form action={deleteUser}> */}
-                  <input type="hidden" name="id" value={user.id} />
-                  <button className={`${style.button} ${style.delete}`}>
-                    Delete
-                  </button>
-                  {/* </form> */}
+                  <form action={deleteUser}>
+                    <input type="hidden" name="id" value={user.id} />
+                    <button className={`${style.button} ${style.delete}`}>
+                      Delete
+                    </button>
+                  </form>
                 </div>
               </td>
             </tr>
